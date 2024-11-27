@@ -1,0 +1,57 @@
+-- CREO LA BASE DE DATOS E INDICO QUE LA VOY A USAR
+CREATE DATABASE ProyectoClinica;
+GO
+
+USE ProyectoClinica;
+GO
+
+
+
+--TABLS DE PACIENTE
+CREATE TABLE Paciente (
+    DNI INT PRIMARY KEY,
+    Nombre NVARCHAR(50) NOT NULL,
+    Apellido NVARCHAR(50) NOT NULL,
+    Direccion NVARCHAR(100),
+    FechaNacimiento DATE NOT NULL,
+    Telefono NVARCHAR(15)
+)
+GO
+
+-- TABLA DE MEDICO
+CREATE TABLE Medico (
+    DNI INT PRIMARY KEY,
+    Nombre NVARCHAR(50) NOT NULL,
+    Apellido NVARCHAR(50) NOT NULL,
+    Especialidad NVARCHAR(50) NOT NULL,
+    Telefono NVARCHAR(15)
+)
+GO
+
+-- TABLA HISTORIA CLINICA
+CREATE TABLE HistoriaClinica (
+    IdHistoria INT IDENTITY PRIMARY KEY,
+    PacienteDNI INT FOREIGN KEY REFERENCES Paciente(DNI),
+    Fecha DATE NOT NULL,
+    Diagnostico NVARCHAR(MAX),
+    Tratamiento NVARCHAR(MAX)
+)
+GO
+
+-- TABLA DE TURNO
+CREATE TABLE Turno (
+    IdTurno INT IDENTITY PRIMARY KEY,
+    PacienteDNI INT FOREIGN KEY REFERENCES Paciente(DNI),
+    MedicoDNI INT FOREIGN KEY REFERENCES Medico(DNI),
+    FechaHora DATETIME NOT NULL,
+    Estado NVARCHAR(20) DEFAULT 'Pendiente'
+)
+GO
+
+-- TABLA DE PAGO
+CREATE TABLE Pago (
+    IdPago INT IDENTITY PRIMARY KEY,
+    TurnoId INT UNIQUE FOREIGN KEY REFERENCES Turno(IdTurno),
+    Monto DECIMAL(10, 2) NOT NULL,
+    FechaPago DATE NOT NULL
+)
