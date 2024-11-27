@@ -1,50 +1,26 @@
-# proyecto-ClinicaMedica
-Instrucciones
-Proyecto Final: Gestión de una Clínica Médica
-Descripción del Proyecto:
-El objetivo de este proyecto es diseñar, implementar y gestionar una base de datos para la gestión de una clínica médica. El proyecto deberá incluir la creación de diversas tablas que reflejen la estructura de la clínica, incluyendo pacientes, médicos, historias clínicas, turnos, pagos, entre otros. Adicionalmente, se deberá implementar un conjunto de procedimientos almacenados y consultas que permitan la gestión eficiente de los datos.
+# Proyecto: Gestión de Clinica Medica
 
-Requisitos:
-Diseño de la Base de Datos:
+## Descripcion
+Este proyecto implementa un sistema de gestion de base de datos para una clinica medica. Permite registrar pacientes, medicos, turnos, historias clinicas y pagos, y realizar consultas relacionadas con estas entidades
 
-Diseñar el modelo entidad-relación (ERD) para representar las entidades y sus relaciones.
-Crear las tablas necesarias en SQL Server siguiendo las mejores prácticas de normalización.
-Tablas:
+## Estructura de la Base de Datos
+- **Paciente**: Contiene los datos de los pacientes.
+- **Medico**: Contiene los datos de los medicos.
+- **Historia Clínica**: Registra las consultas medicas.
+- **Turno**: Registra las citas medicas entre pacientes y médicos.
+- **Pago**: Registra los pagos realizados por los pacientes.
 
-Crear las siguientes tablas:
-Paciente: Incluir campos como DNI, nombre, apellido, dirección, fecha de nacimiento, entre otros.
-Medico: Incluir campos como DNI, nombre, apellido, especialidad, entre otros.
-Historias Clínicas: Registrar información relevante sobre las consultas médicas.
-Turnos: Registro de citas entre pacientes y médicos.
-Pagos: Registrar los pagos realizados por los pacientes.
-Relaciones:
+## Procedimientos Almacenados
+Se crearon procedimientos almacenados para:
+- Insertar nuevos pacientes, medicos y turnos.
+- Consultar el historial de un paciente.
+- Realizar pagos y asociarlos a turnos.
+- Actualizar la información de pacientes y medicos.
 
-Definir correctamente las relaciones entre las tablas, incluyendo las claves primarias y foráneas necesarias.
-Asegurarse de manejar relaciones uno a uno, uno a muchos, y muchos a muchos según corresponda.
-Procedimientos Almacenados:
+## Consultas
+- Consultas para obtener turnos en un rango de fechas, calcular pagos totales, obtener la especialidad de un medico, y listar pacientes con turnos no pagados.
 
-Crear procedimientos almacenados para:
-Insertar nuevos pacientes, médicos, y turnos.
-Consultar el historial de un paciente.
-Realizar pagos y asociarlos correctamente a los turnos y pacientes.
-Actualizar la información de un paciente o médico.
-Consultas:
-
-Realizar consultas para:
-Obtener todos los turnos de un paciente en un rango de fechas.
-Calcular el total de pagos realizados por un paciente.
-Obtener la especialidad de un médico específico.
-Listar los pacientes que aún no han pagado sus turnos.
-Validaciones y Restricciones:
-
-Implementar validaciones en los procedimientos almacenados para asegurar la integridad de los datos.
-Asegurarse de que no se puedan insertar registros duplicados y que todas las referencias sean válidas.
-Optimización:
-
-Utilizar índices y otros mecanismos de optimización para mejorar el rendimiento de las consultas.
-Documentación:
-
-Incluir una breve documentación explicando el diseño de la base de datos y los procedimientos almacenados creados.
-Incluir ejemplos de uso para los procedimientos almacenados y consultas.
-Entrega:
-Formato de entrega: Entrega un enlace a tu repositorio de GitHub del script SQL con la creación de las tablas, procedimientos almacenados, y consultas. Incluir UN archivo README con la documentación.
+## Instrucciones
+- Dentro de la carpeta "ProyectoClinica" se encuentran los archivos "CRT_Tables.sql" y "CRT_StoredProcedures.sql" los cuales contienen todo lo mencionado anteriormente.
+- Dentro del archivo "CRT_StoredProcedures.sql" debajo de cada bloque de codigo hay un ejemplo para ejecutar su respectivo proceso
+- Dentro del archivo "CRT_Tables.sql" se crea la base de datos "ProyectoClinica" y alli se crean las tablas 
